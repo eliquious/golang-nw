@@ -32,8 +32,7 @@ func New() (NodeWebkit, error) {
 // ListenAndServe listens to a random port on localhost
 // and the issues a Redirect to node-webkit.
 // If handler is nil then the http.DefaultHandler will be used
-func (n NodeWebkit) ListenAndServe(handler http.Handler) error {
-	httpAddr := "127.0.0.1:0"
+func (n NodeWebkit) ListenAndServe(httpAddr string, handler http.Handler) error {
 	listener, err := net.Listen("tcp", httpAddr)
 	// If we were not able to establish a socket send error back to node-webkit
 	if err != nil {
